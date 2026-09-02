@@ -4,9 +4,9 @@ MiraTab is the player-list formatting module for the Mira Minecraft plugin ecosy
 
 ## Download
 
-[**Download MiraTab v0.1.0**](https://github.com/FiveSOCE/Mira-Tab/releases/download/v0.1.0/MiraTab-0.1.0.jar)
+[**Download MiraTab v0.1.2**](https://github.com/FiveSOCE/Mira-Tab/releases/download/v0.1.2/MiraTab-0.1.2.jar)
 
-Current release: **v0.1.0**
+Current release: **v0.1.2**
 
 ## Dependencies
 
@@ -23,33 +23,53 @@ MiraTab reads LuckPerms prefixes directly. When MiraTags is installed, the activ
 
 Vault is not required by MiraTab because LuckPerms is consumed directly.
 
-## Default player row
+## Default factions layout
+
+MiraTab now ships with the factions-style layout as its default:
+
+```text
+               ★ MIRA FACTIONS ★
+                 play.mira.gg
+
+[OWNER] FiveS [King]
+[ADMIN] Atomic [OG]
+[MOD] Kuooko
+[MVP+] PlayerOne
+[MVP] PlayerTwo [Grinder]
+[MEMBER] Steve
+[MEMBER] Alex [PvPer]
+
+         7/100 Players Online
+              mira.gg
+```
+
+Minecraft centers header/footer lines automatically and renders its normal connection indicator at the far right of each player row.
+
+The actual player row remains:
 
 ```text
 [prefix] Username [tag]
 ```
 
-The exact spacing and formatting are controlled by the configured LuckPerms prefix/tag suffix values and `display.player-format`.
-
-Default:
+The exact spacing and formatting come from the LuckPerms prefix, MiraTags suffix and:
 
 ```yaml
 display:
   player-format: "%prefix%%player%%suffix%"
 ```
 
-## Header and footer
-
-The header and footer are configured as lists of legacy-color-code strings:
+## Default header and footer
 
 ```yaml
 display:
   header:
-    - "&5&lMira"
-    - "&7Welcome, &f%player%"
+    - "&5&l★ MIRA FACTIONS ★"
+    - "&7play.mira.gg"
+    - ""
   footer:
-    - "&7Online: &f%online%&7/&f%max_players% &8| &7Ping: &f%ping%ms"
-    - "&8%world%"
+    - ""
+    - "&f%online%&8/&f%max_players% &7Players Online"
+    - "&5mira.gg"
 ```
 
 Supported placeholders:
@@ -63,6 +83,12 @@ Supported placeholders:
 - `%online%`
 - `%max_players%`
 
+## v0.1.0 upgrade handling
+
+v0.1.2 detects the exact untouched v0.1.0 stock header/footer and upgrades it automatically to the factions-style layout.
+
+If the existing layout was customized, MiraTab leaves it untouched.
+
 ## Display scope
 
 ```yaml
@@ -72,7 +98,7 @@ display:
 
 `GLOBAL` makes `%online%` report the whole server. `WORLD` makes `%online%` report players in the viewer's current world.
 
-The actual player-list roster stays global. MiraTab does not hide players from each other to simulate per-world tabs because player visibility should not be altered by a formatting plugin.
+The actual player-list roster stays global. MiraTab does not hide players to simulate per-world tabs because a formatting plugin should not change player visibility.
 
 ## Sorting
 
@@ -85,8 +111,6 @@ sorting:
 ```
 
 Higher group weight appears first. Players with the same weight are ordered alphabetically by username.
-
-This keeps the tab hierarchy attached to the existing LuckPerms rank hierarchy instead of maintaining a second rank-order list.
 
 ## Refreshing
 
@@ -123,26 +147,18 @@ Default: OP.
 
 MiraTab registers the `MiraTabApi` in MiraCore and reports module health through `/miracore status`.
 
-The API supports:
-
-- refresh one player
-- refresh all players
-- render a player's current tab name
-- read the player's LuckPerms primary-group weight
+The API supports refreshing one/all players, rendering a player's current tab name, and reading LuckPerms primary-group weight.
 
 ## First test pass
 
-1. Install MiraCore, LuckPerms and MiraTab. Keep MiraTags installed if you want direct tag integration.
-2. Ensure only one MiraTab JAR exists in `/plugins`.
-3. Restart Paper 1.21.11.
-4. Run `/version MiraTab` and confirm `0.1.0`.
-5. Run `/mtab test` and expect `8/8 passed`.
-6. Run `/miracore status` and confirm MiraTab is HEALTHY.
-7. Give two players different LuckPerms prefixes/group weights and confirm the higher-weight rank appears first.
-8. Equip a MiraTag and confirm it appears after the username.
-9. Change a prefix/tag while online and confirm the tab refreshes within the configured refresh interval.
-10. Edit header/footer text, run `/mtab reload`, and confirm the change applies immediately.
-11. Switch `display.scope` to `WORLD`, reload, and confirm `%online%` follows the viewer's world count.
+1. Replace the old MiraTab JAR and ensure only one MiraTab JAR exists in `/plugins`.
+2. Restart Paper 1.21.11.
+3. Run `/version MiraTab` and confirm `0.1.2`.
+4. Run `/mtab test` and expect `8/8 passed`.
+5. Press TAB and confirm the factions header/footer appears.
+6. Equip a MiraTag and confirm it appears after the username.
+7. Confirm LuckPerms group weights control player ordering.
+8. If upgrading an untouched v0.1.0 config, confirm it migrated automatically.
 
 ## Building
 
@@ -153,5 +169,5 @@ gradle clean test build
 Output:
 
 ```text
-build/libs/MiraTab-0.1.0.jar
+build/libs/MiraTab-0.1.2.jar
 ```
