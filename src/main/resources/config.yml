@@ -2,13 +2,21 @@ display:
   enabled: true
   refresh-ticks: 20
   scope: GLOBAL
+
+  # Player rows stay clean. Minecraft renders its normal connection indicator
+  # at the far right of each player automatically.
   player-format: "%prefix%%player%%suffix%"
+
+  # Minecraft centers player-list header/footer lines automatically.
   header:
-    - "&5&lMira"
-    - "&7Welcome, &f%player%"
+    - "&5&l★ MIRA FACTIONS ★"
+    - "&7play.mira.gg"
+    - ""
+
   footer:
-    - "&7Online: &f%online%&7/&f%max_players% &8| &7Ping: &f%ping%ms"
-    - "&8%world%"
+    - ""
+    - "&f%online%&8/&f%max_players% &7Players Online"
+    - "&5mira.gg"
 
 sorting:
   enabled: true
