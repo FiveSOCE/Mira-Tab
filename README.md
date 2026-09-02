@@ -2,6 +2,12 @@
 
 MiraTab is the player-list formatting module for the Mira Minecraft plugin ecosystem. It targets **Paper 1.21.11** and **Java 21**.
 
+## Download
+
+[**Download MiraTab v0.1.0**](https://github.com/FiveSOCE/Mira-Tab/releases/download/v0.1.0/MiraTab-0.1.0.jar)
+
+Current release: **v0.1.0**
+
 ## Dependencies
 
 Hard dependencies:
