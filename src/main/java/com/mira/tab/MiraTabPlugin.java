@@ -17,9 +17,29 @@ import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.util.List;
 import java.util.Locale;
 
 public final class MiraTabPlugin extends JavaPlugin {
+    private static final List<String> V010_HEADER = List.of(
+            "&5&lMira",
+            "&7Welcome, &f%player%"
+    );
+    private static final List<String> V010_FOOTER = List.of(
+            "&7Online: &f%online%&7/&f%max_players% &8| &7Ping: &f%ping%ms",
+            "&8%world%"
+    );
+    private static final List<String> FACTIONS_HEADER = List.of(
+            "&5&l★ MIRA FACTIONS ★",
+            "&7play.mira.gg",
+            ""
+    );
+    private static final List<String> FACTIONS_FOOTER = List.of(
+            "",
+            "&f%online%&8/&f%max_players% &7Players Online",
+            "&5mira.gg"
+    );
+
     private MiraCore core;
     private LuckPerms luckPerms;
     private TabDisplayService display;
@@ -29,6 +49,7 @@ public final class MiraTabPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        migrateStockV010Layout();
 
         core = MiraCoreProvider.require();
         luckPerms = LuckPermsProvider.get();
@@ -87,6 +108,18 @@ public final class MiraTabPlugin extends JavaPlugin {
 
     public boolean refreshTaskRunning() {
         return refreshTask != null && !refreshTask.isCancelled();
+    }
+
+    private void migrateStockV010Layout() {
+        if (!getConfig().getString("display.player-format", "%prefix%%player%%suffix%")
+                .equals("%prefix%%player%%suffix%")) return;
+        if (!getConfig().getStringList("display.header").equals(V010_HEADER)) return;
+        if (!getConfig().getStringList("display.footer").equals(V010_FOOTER)) return;
+
+        getConfig().set("display.header", FACTIONS_HEADER);
+        getConfig().set("display.footer", FACTIONS_FOOTER);
+        saveConfig();
+        getLogger().info("Upgraded the untouched MiraTab v0.1.0 layout to the factions-style default.");
     }
 
     private void startRefreshTask() {
