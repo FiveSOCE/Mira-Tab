@@ -1,0 +1,15 @@
+display:
+  enabled: true
+  refresh-ticks: 20
+  scope: GLOBAL
+  player-format: "%prefix%%player%%suffix%"
+  header:
+    - "&5&lMira"
+    - "&7Welcome, &f%player%"
+  footer:
+    - "&7Online: &f%online%&7/&f%max_players% &8| &7Ping: &f%ping%ms"
+    - "&8%world%"
+
+sorting:
+  enabled: true
+  luckperms-group-weight: true

@@ -1,0 +1,20 @@
+name: MiraTab
+version: 0.1.0
+main: com.mira.tab.MiraTabPlugin
+api-version: '1.21'
+authors: [FiveS]
+description: LuckPerms-aware player list formatting for the Mira plugin ecosystem.
+depend: [MiraCore, LuckPerms]
+softdepend: [MiraTags]
+
+commands:
+  miratab:
+    description: MiraTab administration and diagnostics.
+    usage: /miratab <status|refresh|reload|test|help>
+    aliases: [mtab]
+    permission: miratab.admin
+
+permissions:
+  miratab.admin:
+    description: Allows MiraTab administration commands.
+    default: op
