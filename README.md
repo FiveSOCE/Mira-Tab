@@ -4,7 +4,7 @@ MiraTab is the player-list formatting module for the Mira Paper server suite. It
 
 ## Download
 
-[**Download MiraTab v0.1.2**](https://github.com/FiveSOCE/Mira-Tab/releases/download/v0.1.2/MiraTab-0.1.2.jar)
+[**Download MiraTab v0.1.2**](https://github.com/FiveSOCE/Mira-Tab/releases/download/v0.1.3/MiraTab-0.1.3.jar)
 
 ## Requirements / Dependencies
 
