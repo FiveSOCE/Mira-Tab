@@ -1,10 +1,14 @@
 # MiraTab
 
-MiraTab is the player-list formatting module for the Mira Paper server suite. It builds a factions-style TAB list using LuckPerms ranks, optional MiraTags data, configurable headers/footers and group-weight sorting.
-
 ## Download
 
-[**Download MiraTab v0.1.2**](https://github.com/FiveSOCE/Mira-Tab/releases/download/v0.1.3/MiraTab-0.1.3.jar)
+**Latest compatibility release: v0.1.3**
+
+[**Download MiraTab-0.1.3.jar**](https://github.com/FiveSOCE/Mira-Tab/releases/download/v0.1.3/MiraTab-0.1.3.jar)
+
+[View all releases](https://github.com/FiveSOCE/Mira-Tab/releases)
+
+MiraTab is the player-list formatting module for the Mira Paper server suite. It builds a factions-style TAB list using LuckPerms ranks, optional MiraTags data, configurable headers/footers and group-weight sorting.
 
 ## Requirements / Dependencies
 
