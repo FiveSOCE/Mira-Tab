@@ -31,6 +31,10 @@ MiraTab formats the player roster for Factions servers using LuckPerms rank pref
 
 Alias: `/mtab`. Permission `miratab.admin` defaults to OP.
 
+## Paper 1.18.2 limitation
+
+Paper 1.18.2 does not implement the modern `Player#setPlayerListOrder` API. This build retains tab names, headers, footers, rank and tag formatting, but **native group-weight ordering is not currently implemented** for 1.18.2. The code does not take ownership of global scoreboard teams because that can interfere with MiraFactions and other plugins. A safe legacy scoreboard sort implementation and runtime integration tests are still outstanding.
+
 ## How MiraTab Works
 
 MiraTab reads each player's LuckPerms prefix and primary-group weight. When MiraTags is installed, the equipped tag is read from the MiraTags API; otherwise MiraTab can fall back to LuckPerms suffix metadata. Player rows are rendered from the configured format, normally `%prefix%%player%%suffix%`.
