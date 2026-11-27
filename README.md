@@ -1,22 +1,35 @@
 # MiraTab
 
-## Download
+## Version-specific downloads
 
-**Latest compatibility release: v0.1.3**
+| Paper version | Java | JAR | Download |
+| --- | --- | --- | --- |
+| **1.18.2** | 17 | `MiraTab_1.18.2.jar` | [Legacy release](https://github.com/FiveSOCE/Mira-Tab/releases/tag/dev-1.18.2) |
+| **1.21.11–26.2** | Java 21 baseline; latest server may require Java 25 | `MiraTab_1.21.11-26.2.jar` | [Modern release](https://github.com/FiveSOCE/Mira-Tab/releases/tag/compat-modern-1.21.11-26.2) |
 
-[**Download MiraTab-0.1.3.jar**](https://github.com/FiveSOCE/Mira-Tab/releases/download/v0.1.3/MiraTab-0.1.3.jar)
+Use the download links only after CI passes and the named release JAR exists. Runtime testing, as well as Paper 1.19–1.21.10 compatibility, remains outstanding. Do not install both JAR variants.
 
-[View all releases](https://github.com/FiveSOCE/Mira-Tab/releases)
+[Legacy source](https://github.com/FiveSOCE/Mira-Tab/tree/compat/1.18.2) · [Modern source](https://github.com/FiveSOCE/Mira-Tab/tree/main) · [All releases](https://github.com/FiveSOCE/Mira-Tab/releases)
 
-MiraTab is the player-list formatting module for the Mira Paper server suite. It builds a factions-style TAB list using LuckPerms ranks, optional MiraTags data, configurable headers/footers and group-weight sorting.
+MiraTab formats the player roster for Factions servers using LuckPerms rank prefixes, group-weight sorting, configurable TAB headers/footers and optional MiraTags suffixes.
 
-## Requirements / Dependencies
+## Dependencies and integrations
 
-- Paper 1.21.11
-- Java 21
-- MiraCore 0.1.0 or newer
-- LuckPerms
-- MiraTags 0.1.3+ optional
+- **Required:** matching Paper and Java runtime, **MiraCore** matching the version and **LuckPerms**.
+- **Optional:** MiraTags, matched to your server version, for the active tag suffix; without it, LuckPerms suffix metadata can be used.
+- MiraTab has no in-game user commands; its one command and alias are for administrators.
+
+## Commands and permissions
+
+| Command | Permission | Purpose |
+| --- | --- | --- |
+| `/miratab status` | `miratab.admin` | Show version, display scope, online count and tag source |
+| `/miratab refresh` | `miratab.admin` | Refresh all player tab entries |
+| `/miratab reload` | `miratab.admin` | Reload configuration and update tasks |
+| `/miratab test` | `miratab.admin` | Run diagnostics |
+| `/miratab help` | `miratab.admin` | Help |
+
+Alias: `/mtab`. Permission `miratab.admin` defaults to OP.
 
 ## How MiraTab Works
 
