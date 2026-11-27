@@ -47,7 +47,7 @@ public final class MiraTabCommand implements CommandExecutor, TabCompleter {
     }
 
     private void status(CommandSender sender) {
-        core.messages().send(sender, "&dMiraTab &7- &fv" + plugin.getPluginMeta().getVersion());
+        core.messages().send(sender, "&dMiraTab &7- &fv" + plugin.getDescription().getVersion());
         core.messages().send(sender, "&7Players: &f" + Bukkit.getOnlinePlayers().size()
                 + "&7 | Refresh: &f" + plugin.refreshTicks() + " ticks");
         core.messages().send(sender, "&7Scope: &f" + plugin.displayScope()
