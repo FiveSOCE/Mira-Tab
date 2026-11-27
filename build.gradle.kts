@@ -6,20 +6,20 @@ plugins {
 }
 
 group = "com.mira"
-version = "0.1.3"
+version = "0.1.3-1.18.2"
 
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
 }
 
-val miraCoreVersion = "0.1.0"
-val miraCoreSha256 = "a96f1b4cd663666f7c82200b06ebf5d91751d2648a3d9bb3641e0e51bb730c9a"
-val miraCoreJar = layout.projectDirectory.file("libs/MiraCore-$miraCoreVersion.jar").asFile
+val miraCoreVersion = "0.6.1-1.18.2"
+val miraCoreSha256 = "8abf9f26ea889ffe1648c6f35fcb7b20eef4decd870e8385fb1603120f363b95"
+val miraCoreJar = layout.projectDirectory.file("libs/MiraCore_1.18.2.jar").asFile
 
-val miraTagsVersion = "0.1.3"
-val miraTagsSha256 = "78fcf60934f622e2b83b1a0f4622c5e56b617155e3d9a43ea7ded46ac7f4b906"
-val miraTagsJar = layout.projectDirectory.file("libs/MiraTags-$miraTagsVersion.jar").asFile
+val miraTagsVersion = "0.1.9-1.18.2"
+val miraTagsSha256 = "d1bb5e644fcb518816f75b21223ef1e7da7e1e03029fa64495699aee62847929"
+val miraTagsJar = layout.projectDirectory.file("libs/MiraTags_1.18.2.jar").asFile
 
 fun sha256(file: File): String {
     val digest = MessageDigest.getInstance("SHA-256")
@@ -40,21 +40,21 @@ fun downloadVerified(url: String, target: File, expectedSha256: String) {
 val downloadMiraDependencies by tasks.registering {
     doLast {
         downloadVerified(
-            "https://github.com/FiveSOCE/MIra-core/releases/download/v$miraCoreVersion/MiraCore-$miraCoreVersion.jar",
+            "https://github.com/FiveSOCE/Mira-core/releases/download/dev-1.18.2/MiraCore_1.18.2.jar",
             miraCoreJar,
             miraCoreSha256
         )
         downloadVerified(
-            "https://github.com/FiveSOCE/Mira-Tags/releases/download/v$miraTagsVersion/MiraTags-$miraTagsVersion.jar",
+            "https://github.com/FiveSOCE/Mira-Tags/releases/download/dev-1.18.2/MiraTags_1.18.2.jar",
             miraTagsJar,
             miraTagsSha256
         )
     }
 }
 
-val paperApiVersion = providers.gradleProperty("paperApiVersion").orElse("1.21.11-R0.1-SNAPSHOT")
-val compileJavaVersion = providers.gradleProperty("compileJavaVersion").map(String::toInt).orElse(21)
-val bytecodeJavaVersion = providers.gradleProperty("bytecodeJavaVersion").map(String::toInt).orElse(21)
+val paperApiVersion = providers.gradleProperty("paperApiVersion").orElse("1.18.2-R0.1-SNAPSHOT")
+val compileJavaVersion = providers.gradleProperty("compileJavaVersion").map(String::toInt).orElse(17)
+val bytecodeJavaVersion = providers.gradleProperty("bytecodeJavaVersion").map(String::toInt).orElse(17)
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:${paperApiVersion.get()}")
@@ -81,5 +81,5 @@ tasks.test {
 }
 
 tasks.jar {
-    archiveFileName.set("MiraTab-${project.version}.jar")
+    archiveFileName.set("MiraTab_1.18.2.jar")
 }
