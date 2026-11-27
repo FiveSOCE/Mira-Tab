@@ -4,10 +4,10 @@
 
 | Paper version | Java | JAR | Download |
 | --- | --- | --- | --- |
-| **1.18.2** | 17 | `MiraTab_1.18.2.jar` | [Legacy release](https://github.com/FiveSOCE/Mira-Tab/releases/tag/dev-1.18.2) |
-| **1.21.11–26.2** | Java 21 baseline; latest server may require Java 25 | `MiraTab_1.21.11-26.2.jar` | [Modern release](https://github.com/FiveSOCE/Mira-Tab/releases/tag/compat-modern-1.21.11-26.2) |
+| **1.18.2** | 17 | `MiraTab_1.18.2.jar` | [Download legacy JAR](https://github.com/FiveSOCE/Mira-Tab/releases/download/dev-1.18.2/MiraTab_1.18.2.jar) |
+| **1.21.11–26.2** | Java 21 baseline; latest server may require Java 25 | `MiraTab_1.21.11-26.2.jar` | [Download modern JAR](https://github.com/FiveSOCE/Mira-Tab/releases/download/compat-modern-1.21.11-26.2/MiraTab_1.21.11-26.2.jar) |
 
-Use the download links only after CI passes and the named release JAR exists. Runtime testing, as well as Paper 1.19–1.21.10 compatibility, remains outstanding. Do not install both JAR variants.
+Both release files have been verified following successful CI builds. Runtime testing, as well as Paper 1.19–1.21.10 compatibility, remains outstanding. Do not install both JAR variants.
 
 [Legacy source](https://github.com/FiveSOCE/Mira-Tab/tree/compat/1.18.2) · [Modern source](https://github.com/FiveSOCE/Mira-Tab/tree/main) · [All releases](https://github.com/FiveSOCE/Mira-Tab/releases)
 
