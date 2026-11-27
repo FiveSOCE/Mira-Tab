@@ -76,7 +76,7 @@ public final class MiraTabPlugin extends JavaPlugin {
 
         core.modules().setHealth(this, ModuleHealth.HEALTHY,
                 "Player list formatting, LuckPerms sorting and header/footer refresh ready");
-        getLogger().info("MiraTab v" + getPluginMeta().getVersion() + " enabled. Tag source: "
+        getLogger().info("MiraTab v" + getDescription().getVersion() + " enabled. Tag source: "
                 + display.tagProviderName() + ".");
     }
 
