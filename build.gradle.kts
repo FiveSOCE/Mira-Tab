@@ -81,5 +81,5 @@ tasks.test {
 }
 
 tasks.jar {
-    archiveFileName.set("MiraTab-${project.version}.jar")
+    archiveFileName.set("MiraTab_1.21.11-26.2.jar")
 }
