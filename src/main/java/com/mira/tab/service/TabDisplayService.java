@@ -72,12 +72,12 @@ public final class TabDisplayService {
     private void restore(Player player) {
         player.playerListName(Component.text(player.getName()));
         player.sendPlayerListHeaderAndFooter(Component.empty(), Component.empty());
-        player.setPlayerListOrder(0);
+        // Paper 1.18.2 has no Player#setPlayerListOrder. Preserve existing scoreboard team order.
     }
 
     private void applySorting(List<Player> players) {
         if (!plugin.getConfig().getBoolean("sorting.enabled", true)) {
-            for (Player player : players) player.setPlayerListOrder(0);
+            // Leave TAB ordering to existing scoreboard teams on Paper 1.18.2.
             return;
         }
 
@@ -86,9 +86,8 @@ public final class TabDisplayService {
                 .reversed()
                 .thenComparing(Player::getName, String.CASE_INSENSITIVE_ORDER));
 
-        for (int i = 0; i < players.size(); i++) {
-            players.get(i).setPlayerListOrder(i);
-        }
+        // Pre-1.21 clients use scoreboard team ordering. Avoid mutating global scoreboard
+        // teams here because it would interfere with Factions and other rank plugins.
     }
 
     private Component renderLines(Player viewer, String path) {
