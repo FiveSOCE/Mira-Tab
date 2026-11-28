@@ -1,17 +1,15 @@
 # MiraTab
 
-## Version-specific downloads
+## Downloads and compatibility
 
-| Paper version | Java | JAR | Download |
+| Server target | Java | Final JAR name | Download |
 | --- | --- | --- | --- |
-| **1.18.2** | 17 | `MiraTab_1.18.2.jar` | [Download legacy JAR](https://github.com/FiveSOCE/Mira-Tab/releases/download/dev-1.18.2/MiraTab_1.18.2.jar) |
-| **1.21.11–26.2** | Java 21 baseline; latest server may require Java 25 | `MiraTab_1.21.11-26.2.jar` | [Download modern JAR](https://github.com/FiveSOCE/Mira-Tab/releases/download/compat-modern-1.21.11-26.2/MiraTab_1.21.11-26.2.jar) |
+| **Paper 1.18.2** | 17 | `MiraTab_1.18.2.jar` | [Download 1.18.2 JAR](https://github.com/FiveSOCE/Mira-Tab/releases/download/dev-1.18.2/MiraTab_1.18.2.jar) |
+| **Paper 1.21.11–26.2** | Java 21 baseline; Paper 26.2 may require Java 25 | `MiraTab_1.21.11-26.2.jar` | [Download modern JAR](https://github.com/FiveSOCE/Mira-Tab/releases/download/compat-modern-1.21.11-26.2/MiraTab_1.21.11-26.2.jar) |
 
-Both release files have been verified following successful CI builds. Runtime testing, as well as Paper 1.19–1.21.10 compatibility, remains outstanding. Do not install both JAR variants.
+Install only one versioned JAR. Release assets are published; complete in-game compatibility is not implied by compilation.
 
-[Legacy source](https://github.com/FiveSOCE/Mira-Tab/tree/compat/1.18.2) · [Modern source](https://github.com/FiveSOCE/Mira-Tab/tree/main) · [All releases](https://github.com/FiveSOCE/Mira-Tab/releases)
-
-MiraTab formats the player roster for Factions servers using LuckPerms rank prefixes, group-weight sorting, configurable TAB headers/footers and optional MiraTags suffixes.
+[Legacy source](https://github.com/FiveSOCE/Mira-Tab/tree/compat/1.18.2) · [Modern source](https://github.com/FiveSOCE/Mira-Tab) · [All releases](https://github.com/FiveSOCE/Mira-Tab/releases)
 
 ## Dependencies and integrations
 
